@@ -135,6 +135,10 @@ border-radius:12px;
 font-size:16px;
 font-weight:bold;
 animation:pulse 1.5s infinite;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 @keyframes pulse{
@@ -150,37 +154,6 @@ background:#fff;
 color:#ff007a;
 border-radius:12px;
 font-size:20px;
-}
-
-.popup{
-position:fixed;
-bottom:-100%;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-display:flex;
-align-items:flex-end;
-transition:0.4s;
-}
-
-.popup.show{
-bottom:0;
-}
-
-.popup-box{
-background:#fff;
-width:100%;
-padding:20px;
-border-radius:20px 20px 0 0;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:8px;
-border:1px solid #ccc;
 }
 
 .footer{
@@ -292,30 +265,10 @@ Assim que o lote promocional acabar, o preço volta automaticamente ao normal.</
 <div class="sticky">
 <div class="wrap">
 
-<button class="comprar" onclick="abrirPopup()">Comprar</button>
+<a href="https://comprasegura.sbs/checkout/cmm3pr3uj03ch1ynx0ilaoytc?offer=LI1VD8W" class="comprar">Comprar</a>
 <button class="carrinho">+</button>
 
 </div>
-</div>
-
-<div class="popup" id="popup">
-
-<div class="popup-box">
-
-<h3>Finalizar Compra — Adicionar endereço de Entrega</h3>
-
-<input placeholder="Nome completo" required>
-<input type="email" placeholder="Email" required>
-<input id="cpf" placeholder="CPF" required>
-<input placeholder="Telefone" required>
-<input id="cep" placeholder="CEP" required>
-<input placeholder="Rua" required>
-<input placeholder="Bairro" required>
-
-<button class="comprar" onclick="irGateway()">Próximo</button>
-
-</div>
-
 </div>
 
 <script>
@@ -347,35 +300,6 @@ prova.style.display="block";
 setTimeout(()=>{prova.style.display="none";},3000);
 }
 setInterval(mostrarProva,6000);
-
-function abrirPopup(){
-document.getElementById("popup").classList.add("show");
-}
-
-document.getElementById("cpf").addEventListener("input",function(e){
-let v=e.target.value.replace(/\D/g,"").slice(0,11);
-v=v.replace(/(\d{3})(\d)/,"$1.$2");
-v=v.replace(/(\d{3})(\d)/,"$1.$2");
-v=v.replace(/(\d{3})(\d{1,2})$/,"$1.$2");
-e.target.value=v;
-});
-
-document.getElementById("cep").addEventListener("input",function(e){
-let v=e.target.value.replace(/\D/g,"").slice(0,8);
-v=v.replace(/(\d{5})(\d)/,"$1-$2");
-e.target.value=v;
-});
-
-function irGateway(){
-const inputs=document.querySelectorAll(".popup-box input");
-for(let i=0;i<inputs.length;i++){
-if(inputs[i].value.trim()===""){
-alert("Preencha todos os campos para continuar");
-return;
-}
-}
-window.location.href="https://ambienteseguro.org.ua/c/412d931586";
-}
 
 </script>
 
