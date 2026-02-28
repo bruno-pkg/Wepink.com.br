@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
 <title>Wepink Ultra</title>
-
 <style>
-
 body{
 margin:0;
 background:#f4f4f4;
 font-family:Arial, sans-serif;
 }
-
 .container{
 max-width:420px;
 margin:auto;
@@ -22,8 +17,6 @@ background:#fff;
 min-height:100vh;
 padding-bottom:100px;
 }
-
-/* HEADER COM ÍCONES PROFISSIONAIS */
 .header{
 display:flex;
 justify-content:space-between;
@@ -35,29 +28,23 @@ top:0;
 z-index:10;
 border-bottom: 1px solid #eee;
 }
-
 .logo img{
 height:24px;
 cursor: pointer;
 }
-
 .header-icons {
     display: flex;
     gap: 15px;
     align-items: center;
     color: #333;
 }
-
 .icon-item {
     width: 22px;
     height: 22px;
 }
-
 .content{
 padding:15px;
 }
-
-/* ROLETA ROSA */
 .roleta-box {
     text-align: center;
     padding: 20px;
@@ -89,13 +76,11 @@ padding:15px;
     border-top: 25px solid #ff007a;
     z-index: 10;
 }
-
 .produto-img{
 width:100%;
 height:300px;
 object-fit:contain;
 }
-
 .badge{
 border:2px solid #ff007a;
 color:#ff007a;
@@ -104,29 +89,24 @@ padding:5px 12px;
 border-radius:20px;
 font-size:14px;
 }
-
 .titulo{
 font-size:20px;
 font-weight:bold;
 margin-top:10px;
 }
-
 .stars{
 color:#ffc107;
 margin-top:8px;
 }
-
 .preco-antigo{
 text-decoration:line-through;
 color:#999;
 margin-top:10px;
 }
-
 .preco{
 font-size:28px;
 font-weight:bold;
 }
-
 .fake{
 background:#fff0f7;
 color:#ff007a;
@@ -136,29 +116,48 @@ margin-top:10px;
 font-size:14px;
 }
 
-/* BOTÃO STICKY CENTRALIZADO */
+/* ESTILO DA PROVA SOCIAL */
+#social-proof {
+    position: fixed;
+    bottom: 95px; /* Acima do botão de compra */
+    left: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 4px solid #ff007a;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 99;
+    font-size: 12px;
+    color: #333;
+    display: block; /* Mantido visível como antes */
+    max-width: 220px;
+    animation: slideIn 0.5s ease-out;
+}
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
 .sticky{
 position:fixed;
 bottom:0;
 left:0;
 width:100%;
 background:#fff;
-padding:15px 0; /* Padding vertical apenas */
+padding:15px 0;
 box-shadow:0 -2px 10px rgba(0,0,0,0.1);
 z-index: 100;
 }
-
 .wrap{
 width: 100%;
 max-width:420px;
 margin:auto;
 display:flex;
-justify-content: center; /* Centralização horizontal */
+justify-content: center;
 align-items: center;
 }
-
 .comprar{
-width: 90%; /* Largura do botão relativa ao container */
+width: 90%;
 background:#ff007a;
 color:#fff;
 border:none;
@@ -174,19 +173,15 @@ justify-content: center;
 cursor: pointer;
 text-align: center;
 }
-
 .btn-resgate {
     display: none;
     line-height: 1.2;
 }
-
 @keyframes pulse{
 0%{transform:scale(1)}
 50%{transform:scale(1.02)}
 100%{transform:scale(1)}
 }
-
-/* RODAPÉ ORIGINAL RESTAURADO */
 .footer{
 background:#ff007a;
 padding:20px;
@@ -195,24 +190,30 @@ color:#fff;
 margin-top:20px;
 text-align: left;
 }
-
 .footer a{
 color:#fff;
 text-decoration:none;
 }
-
 </style>
 </head>
-
 <body>
 
 <audio id="som-roleta" src="https://www.soundjay.com/misc/sounds/spinning-wheel-1.mp3" preload="auto"></audio>
 
-<div class="container">
+<div id="social-proof">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="background: #ff007a; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+        <div>
+            <span id="social-name" style="font-weight: bold; color: #ff007a;">Juliana Alves</span><br>
+            <span id="social-text">acabou de verificar seu prêmio!</span>
+        </div>
+    </div>
+</div>
 
+<div class="container">
 <div class="header">
 <div style="font-size: 20px;">☰</div>
-<div class="logo" onclick="window.location.href='https://www.wepink.com.br/'">
+<div class="logo">
 <img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/logo-primary___5bd0e7fa6451ba181395889123dfe00a.svg">
 </div>
 <div class="header-icons">
@@ -226,7 +227,6 @@ text-decoration:none;
 </div>
 
 <div class="content">
-
 <div class="badge">lançamento</div>
 
 <img class="produto-img" src="https://wepink.vtexassets.com/arquivos/ids/163722-700-700?v=639066626489500000&width=700&height=700&aspect=true">
@@ -288,6 +288,9 @@ const premios = [
     { texto: "100% OFF", cor: "#ff007a" }
 ];
 
+const names = ["Juliana Alves", "Mariana Costa", "Fernanda Silva", "Beatriz Santos", "Amanda Oliveira", "Camila Rocha", "Larissa Souza", "Priscila Mendes", "Renata Lima", "Tatiane Ferreira"];
+const texts = ["acabou de verificar seu prêmio", "o pedido foi Confirmado", "ganhou 100% de desconto", "resgatou o kit exclusivo"];
+
 const svg = document.getElementById('roleta-svg');
 const arco = 360 / premios.length;
 
@@ -313,6 +316,30 @@ premios.forEach((p, i) => {
 });
 
 let girado = false;
+
+function aplicarPremioFinal() {
+    document.getElementById('preco-exibido').innerText = "R$ 0,00";
+    document.getElementById('preco-exibido').style.color = "#ff007a";
+    document.getElementById('btn-comprar-main').style.display = 'none';
+    document.getElementById('btn-resgatar').style.display = 'flex';
+    document.getElementById('btn-girar').innerText = "100% OFF LIBERADO!";
+    document.getElementById('texto-roleta').innerText = "🎊 PRÊMIO LIBERADO 🎊";
+    document.getElementById('info-extra').innerHTML = `<div style="background:#fff0f7; padding:15px; border-radius:10px; border:1px solid #ff007a; color:#ff007a; text-align:center;"><strong>PRODUTO 100% GRATUITO!</strong><br>O frete de R$ 19,90 será 100% reembolsado na sua fatura.</div>`;
+}
+
+window.onload = function() {
+    // Inicia a troca de nomes imediatamente
+    showSocialProof();
+    
+    if (localStorage.getItem('wepink_ganhou') === 'true') {
+        girado = true;
+        const totalGiro = (360 * 10) + (360 - (5 * arco) - (arco/2));
+        svg.style.transition = 'none';
+        svg.style.transform = `rotate(${totalGiro}deg)`;
+        aplicarPremioFinal();
+    }
+};
+
 function girarRoleta() {
     if(girado) return;
     girado = true;
@@ -322,16 +349,29 @@ function girarRoleta() {
     svg.style.transform = `rotate(${totalGiro}deg)`;
 
     setTimeout(() => {
-        document.getElementById('preco-exibido').innerText = "R$ 0,00";
-        document.getElementById('preco-exibido').style.color = "#ff007a";
-        document.getElementById('btn-comprar-main').style.display = 'none';
-        document.getElementById('btn-resgatar').style.display = 'flex';
-        document.getElementById('btn-girar').innerText = "100% OFF LIBERADO!";
-        document.getElementById('texto-roleta').innerText = "🎊 PRÊMIO LIBERADO 🎊";
-        document.getElementById('info-extra').innerHTML = `<div style="background:#fff0f7; padding:15px; border-radius:10px; border:1px solid #ff007a; color:#ff007a; text-align:center;"><strong>PRODUTO 100% GRATUITO!</strong><br>O frete de R$ 19,90 será 100% reembolsado na sua fatura.</div>`;
+        localStorage.setItem('wepink_ganhou', 'true');
+        aplicarPremioFinal();
     }, 5000);
 }
 
+function showSocialProof() {
+    const popup = document.getElementById('social-proof');
+    const nameEl = document.getElementById('social-name');
+    const textEl = document.getElementById('social-text');
+    
+    // Altera o conteúdo
+    nameEl.innerText = names[Math.floor(Math.random() * names.length)];
+    textEl.innerText = texts[Math.floor(Math.random() * texts.length)];
+    
+    // Efeito simples de fade para a troca
+    popup.style.opacity = 0;
+    setTimeout(() => {
+        popup.style.opacity = 1;
+    }, 100);
+}
+
+// Troca os nomes a cada 5 segundos continuamente
+setInterval(showSocialProof, 5000);
 setInterval(()=>{ document.getElementById("contador").innerText = Math.floor(Math.random()*30)+1; },2000);
 </script>
 
