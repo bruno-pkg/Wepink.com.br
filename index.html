@@ -4,37 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Wepink Ultra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-body{
-margin:0;
-background:#f4f4f4;
-font-family:Arial, sans-serif;
+body {
+    margin: 0;
+    background: #f8f9fa;
+    font-family: 'Montserrat', sans-serif;
+    color: #2b2b2b;
 }
-.container{
-max-width:420px;
-margin:auto;
-background:#fff;
-min-height:100vh;
-padding-bottom:100px;
+.container {
+    max-width: 420px;
+    margin: auto;
+    background: #ffffff;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px;
-background:#fff;
-position:sticky;
-top:0;
-z-index:10;
-border-bottom: 1px solid #eee;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #f0f0f0;
 }
-.logo img{
-height:24px;
-cursor: pointer;
+.logo img {
+    height: 26px;
+    cursor: pointer;
 }
 .header-icons {
     display: flex;
-    gap: 15px;
+    gap: 18px;
     align-items: center;
     color: #333;
 }
@@ -42,169 +48,224 @@ cursor: pointer;
     width: 22px;
     height: 22px;
 }
-.content{
-padding:15px;
+.content {
+    padding: 20px;
 }
 .roleta-box {
     text-align: center;
-    padding: 20px;
-    background: #fff0f7;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    border: 2px dashed #ff007a;
+    padding: 25px 20px;
+    background: linear-gradient(145deg, #ffffff 0%, #fff0f7 100%);
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(255, 0, 122, 0.08);
+    border: 1px solid rgba(255, 0, 122, 0.1);
 }
 .wheel-container {
     position: relative;
     width: 260px;
     height: 260px;
     margin: 0 auto;
+    border-radius: 50%;
+    border: 6px solid #ff007a;
+    box-shadow: 0 0 20px rgba(255, 0, 122, 0.2), inset 0 0 10px rgba(0,0,0,0.1);
+    background: #fff;
 }
 #roleta-svg {
     width: 100%;
     height: 100%;
-    transition: transform 5s cubic-bezier(0.15, 0, 0.15, 1);
+    border-radius: 50%;
 }
 .ponteiro {
     position: absolute;
-    top: -10px;
+    top: -15px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-top: 25px solid #ff007a;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #2b2b2b;
     z-index: 10;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
 }
-.produto-img{
-width:100%;
-height:300px;
-object-fit:contain;
+.ponteiro::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 25px solid #ff007a;
 }
-.badge{
-border:2px solid #ff007a;
-color:#ff007a;
-display:inline-block;
-padding:5px 12px;
-border-radius:20px;
-font-size:14px;
+.produto-img {
+    width: 100%;
+    height: 320px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
+    margin: 10px 0;
 }
-.titulo{
-font-size:20px;
-font-weight:bold;
-margin-top:10px;
+.badge {
+    background: linear-gradient(135deg, #ff007a 0%, #ff4b9b 100%);
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(255, 0, 122, 0.3);
 }
-.stars{
-color:#ffc107;
-margin-top:8px;
+.titulo {
+    font-size: 22px;
+    font-weight: 800;
+    margin-top: 15px;
+    line-height: 1.3;
 }
-.preco-antigo{
-text-decoration:line-through;
-color:#999;
-margin-top:10px;
+.stars {
+    color: #ffb700;
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
-.preco{
-font-size:28px;
-font-weight:bold;
+.preco-antigo {
+    text-decoration: line-through;
+    color: #a0a0a0;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 600;
 }
-.fake{
-background:#fff0f7;
-color:#ff007a;
-padding:8px;
-border-radius:8px;
-margin-top:10px;
-font-size:14px;
+.preco {
+    font-size: 34px;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -1px;
+}
+.fake {
+    background: rgba(255, 0, 122, 0.05);
+    color: #ff007a;
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 0, 122, 0.15);
 }
 
 /* ESTILO DA PROVA SOCIAL */
 #social-proof {
     position: fixed;
-    bottom: 95px; /* Acima do botão de compra */
-    left: 10px;
-    background: rgba(255, 255, 255, 0.95);
-    border-left: 4px solid #ff007a;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    bottom: 95px; 
+    left: 15px;
+    background: #ffffff;
+    border-left: 5px solid #ff007a;
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     z-index: 99;
-    font-size: 12px;
-    color: #333;
-    display: block; /* Mantido visível como antes */
-    max-width: 220px;
-    animation: slideIn 0.5s ease-out;
+    font-size: 13px;
+    color: #444;
+    display: block; 
+    max-width: 240px;
+    animation: slideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 0.3s ease;
 }
 @keyframes slideIn {
-    from { transform: translateX(-100%); opacity: 0; }
+    from { transform: translateX(-120%); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
 
-.sticky{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#fff;
-padding:15px 0;
-box-shadow:0 -2px 10px rgba(0,0,0,0.1);
-z-index: 100;
+.sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 15px 0;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    z-index: 100;
 }
-.wrap{
-width: 100%;
-max-width:420px;
-margin:auto;
-display:flex;
-justify-content: center;
-align-items: center;
+.wrap {
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.comprar{
-width: 90%;
-background:#ff007a;
-color:#fff;
-border:none;
-padding:14px;
-border-radius:10px;
-font-size:16px;
-font-weight:bold;
-animation:pulse 1.5s infinite;
-text-decoration: none;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-text-align: center;
+.comprar {
+    width: 90%;
+    background: linear-gradient(135deg, #ff007a 0%, #e6006e 100%);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 800;
+    text-transform: uppercase;
+    animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(255, 0, 122, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.comprar:active {
+    transform: scale(0.98);
 }
 .btn-resgate {
     display: none;
-    line-height: 1.2;
+    line-height: 1.3;
+    flex-direction: column;
 }
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.02)}
-100%{transform:scale(1)}
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 0, 122, 0.35); }
+    50% { transform: scale(1.03); box-shadow: 0 12px 25px rgba(255, 0, 122, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 0, 122, 0.35); }
 }
-.footer{
-background:#ff007a;
-padding:20px;
-font-size:13px;
-color:#fff;
-margin-top:20px;
-text-align: left;
+.footer {
+    background: #111111;
+    padding: 30px 20px;
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-top: 30px;
+    text-align: left;
 }
-.footer a{
-color:#fff;
-text-decoration:none;
+.footer h4 {
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 0;
+}
+.footer a {
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer a:hover {
+    color: #ff007a;
+}
+.footer strong {
+    color: #ffffff;
+    display: block;
+    margin-top: 20px;
 }
 </style>
 </head>
 <body>
 
-<audio id="som-roleta" src="https://www.soundjay.com/misc/sounds/spinning-wheel-1.mp3" preload="auto"></audio>
-
 <div id="social-proof">
-    <div style="display: flex; align-items: center; gap: 10px;">
-        <div style="background: #ff007a; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="background: linear-gradient(135deg, #ff007a, #ff4b9b); color: white; border-radius: 50%; min-width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; box-shadow: 0 2px 6px rgba(255,0,122,0.3);">✓</div>
         <div>
-            <span id="social-name" style="font-weight: bold; color: #ff007a;">Juliana Alves</span><br>
+            <span id="social-name" style="font-weight: 800; color: #ff007a; font-size: 14px;">Juliana Alves</span><br>
             <span id="social-text">acabou de verificar seu prêmio!</span>
         </div>
     </div>
@@ -212,16 +273,16 @@ text-decoration:none;
 
 <div class="container">
 <div class="header">
-<div style="font-size: 20px;">☰</div>
+<div style="font-size: 24px; font-weight: bold; cursor: pointer;">☰</div>
 <div class="logo">
 <img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/logo-primary___5bd0e7fa6451ba181395889123dfe00a.svg">
 </div>
 <div class="header-icons">
     <div class="icon-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
     </div>
     <div class="icon-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
     </div>
 </div>
 </div>
@@ -232,24 +293,24 @@ text-decoration:none;
 <img class="produto-img" src="https://wepink.vtexassets.com/arquivos/ids/163722-700-700?v=639066626489500000&width=700&height=700&aspect=true">
 
 <div class="roleta-box">
-    <h3 id="texto-roleta" style="color:#ff007a; margin-bottom:15px;">GIRE E DESCUBRA SEU DESCONTO</h3>
+    <h3 id="texto-roleta" style="color:#ff007a; margin-top:0; margin-bottom:20px; font-weight:800; font-size: 18px;">GIRE E DESCUBRA SEU DESCONTO</h3>
     <div class="wheel-container">
         <div class="ponteiro"></div>
         <svg id="roleta-svg" viewBox="0 0 100 100"></svg>
     </div>
-    <button class="comprar" id="btn-girar" onclick="girarRoleta()" style="margin-top:15px; width:100%;">GIRAR AGORA</button>
+    <button class="comprar" id="btn-girar" onclick="girarRoleta()" style="margin-top:25px; width:100%;">GIRAR AGORA</button>
 </div>
 
 <div class="titulo">Kit One Touch Latte + Ruby Rhodolite + Crimson Seraph + VF Golden</div>
 <div class="stars">★★★★★ (4.9)</div>
 
-<div class="fake">🔥 <span id="contador">12</span> pessoas comprando agora</div>
+<div class="fake">🔥 <span><span id="contador">12</span> pessoas comprando agora</span></div>
 
 <div class="preco-antigo">R$ 551,90</div>
 <div class="preco" id="preco-exibido">R$ 149,90</div>
 
-<div id="info-extra" style="margin-top:15px;font-size:14px;line-height:1.5;color:#333;">
-<p><strong style="color:#ff007a;">⚠️ ATENÇÃO: Promoção relâmpago ativa por tempo limitado</strong></p>
+<div id="info-extra" style="margin-top:20px; font-size:14px; line-height:1.6; color:#444;">
+<p><strong style="color:#ff007a; font-size: 15px;">⚠️ ATENÇÃO: Promoção relâmpago ativa por tempo limitado</strong></p>
 <p>Esse é o kit que está simplesmente desaparecendo do estoque. A combinação perfeita para quem quer sentir a experiência Wepink completa.</p>
 <p>💖 Elegância, intensidade e presença em um único kit exclusivo.</p>
 </div>
@@ -258,15 +319,15 @@ text-decoration:none;
 
 <div class="footer">
 <h4>Formas de pagamento</h4>
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px;">
-<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/visa___e411afdf7f4f5a87e368bb90951f8e21.svg" height="22">
-<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/mastercard___bef22abd904b16a89535383905436dd7.svg" height="22">
-<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/pix___01c4699613640d38300e9f0e7f2a621d.svg" height="22">
+<div style="display:flex;gap:15px;flex-wrap:wrap;margin-bottom:20px;">
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/visa___e411afdf7f4f5a87e368bb90951f8e21.svg" height="26">
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/mastercard___bef22abd904b16a89535383905436dd7.svg" height="26">
+<img src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/5.0.0/svg/pix___01c4699613640d38300e9f0e7f2a621d.svg" height="26">
 </div>
 <p>- <a href="#">Política de Privacidade</a></p>
 <p>- <a href="#">Termos de Uso</a></p>
 <p><strong>Todos os direitos reservados © 2026 | SAVI COSMÉTICOS LTDA</strong></p>
-<p>Atendimento por Whatsapp: +55 (11) 99556-4258</p>
+<p style="margin-top: 15px;">Atendimento por Whatsapp: +55 (11) 99556-4258</p>
 </div>
 
 </div>
@@ -274,103 +335,182 @@ text-decoration:none;
 <div class="sticky">
 <div class="wrap">
 <button class="comprar" id="btn-comprar-main" onclick="alert('Gire a roleta primeiro!')">Comprar Agora</button>
-<a href="https://compraonlinesegurada.org.ua/c/b9ff800d04" class="comprar btn-resgate" id="btn-resgatar">RESGATAR MEU PRÊMIO<br><small style="font-size: 9px;">(FRETE REEMBOLSÁVEL)</small></a>
+<a href="https://compraonlinesegurada.org.ua/c/b9ff800d04" class="comprar btn-resgate" id="btn-resgatar">
+    RESGATAR MEU PRÊMIO
+    <small style="font-size: 10px; font-weight: 600; margin-top: 2px; opacity: 0.9;">(FRETE REEMBOLSÁVEL)</small>
+</a>
 </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
+const svg = document.getElementById("roleta-svg");
+const btnGirar = document.getElementById("btn-girar");
+const precoExibido = document.getElementById("preco-exibido");
+const textoRoleta = document.getElementById("texto-roleta");
+const infoExtra = document.getElementById("info-extra");
+const btnMain = document.getElementById('btn-comprar-main');
+const btnResgatar = document.getElementById('btn-resgatar');
+
 const premios = [
-    { texto: "5% OFF", cor: "#ffb6c1" },
+    { texto: "TENTE NOVAMENTE", cor: "#ffb6c1" }, // Índice 0
     { texto: "10% OFF", cor: "#ff69b4" },
     { texto: "FRETE GRÁTIS", cor: "#ff1493" },
     { texto: "15% OFF", cor: "#db7093" },
     { texto: "20% OFF", cor: "#c71585" },
-    { texto: "100% OFF", cor: "#ff007a" }
+    { texto: "100% OFF", cor: "#ff007a" }      // Índice 5
 ];
 
 const names = ["Juliana Alves", "Mariana Costa", "Fernanda Silva", "Beatriz Santos", "Amanda Oliveira", "Camila Rocha", "Larissa Souza", "Priscila Mendes", "Renata Lima", "Tatiane Ferreira"];
 const texts = ["acabou de verificar seu prêmio", "o pedido foi Confirmado", "ganhou 100% de desconto", "resgatou o kit exclusivo"];
 
-const svg = document.getElementById('roleta-svg');
 const arco = 360 / premios.length;
+let tentativas = parseInt(localStorage.getItem('wepink_tentativas') || '0');
+let isSpinning = false;
+let currentRotation = 0;
 
-premios.forEach((p, i) => {
-    const ang = i * arco;
-    const x1 = 50 + 50 * Math.cos(Math.PI * (ang - 90) / 180);
-    const y1 = 50 + 50 * Math.sin(Math.PI * (ang - 90) / 180);
-    const x2 = 50 + 50 * Math.cos(Math.PI * (ang + arco - 90) / 180);
-    const y2 = 50 + 50 * Math.sin(Math.PI * (ang + arco - 90) / 180);
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", `M 50 50 L ${x1} ${y1} A 50 50 0 0 1 ${x2} ${y2} Z`);
-    path.setAttribute("fill", p.cor);
-    path.setAttribute("stroke", "#fff");
-    svg.appendChild(path);
+function criarRoleta() {
+    const fragment = document.createDocumentFragment();
 
-    const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    txt.setAttribute("x", "50"); txt.setAttribute("y", "12");
-    txt.setAttribute("fill", "#fff"); txt.setAttribute("font-size", "4");
-    txt.setAttribute("text-anchor", "middle"); txt.setAttribute("font-weight", "bold");
-    txt.setAttribute("transform", `rotate(${ang + arco/2}, 50, 50)`);
-    txt.textContent = p.texto;
-    svg.appendChild(txt);
-});
+    premios.forEach((p, i) => {
+        let ang = i * arco;
+        let rad1 = Math.PI * (ang - 90) / 180;
+        let rad2 = Math.PI * (ang + arco - 90) / 180;
 
-let girado = false;
+        let x1 = 50 + 50 * Math.cos(rad1);
+        let y1 = 50 + 50 * Math.sin(rad1);
+        let x2 = 50 + 50 * Math.cos(rad2);
+        let y2 = 50 + 50 * Math.sin(rad2);
+
+        let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", `M50 50 L${x1} ${y1} A50 50 0 0 1 ${x2} ${y2} Z`);
+        path.setAttribute("fill", p.cor);
+        path.setAttribute("stroke", "#ffffff");
+        path.setAttribute("stroke-width", "0.5");
+        fragment.appendChild(path);
+
+        let txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        txt.setAttribute("x", "50");
+        txt.setAttribute("y", "14");
+        txt.setAttribute("fill", "#ffffff");
+        txt.setAttribute("font-size", p.texto === "TENTE NOVAMENTE" ? "4.5" : "5");
+        txt.setAttribute("font-family", "'Montserrat', sans-serif");
+        txt.setAttribute("text-anchor", "middle");
+        txt.setAttribute("font-weight", "800");
+        txt.setAttribute("transform", `rotate(${ang + arco / 2}, 50, 50)`);
+        txt.textContent = p.texto;
+        fragment.appendChild(txt);
+    });
+
+    svg.appendChild(fragment);
+}
+
+criarRoleta();
 
 function aplicarPremioFinal() {
-    document.getElementById('preco-exibido').innerText = "R$ 0,00";
-    document.getElementById('preco-exibido').style.color = "#ff007a";
-    document.getElementById('btn-comprar-main').style.display = 'none';
-    document.getElementById('btn-resgatar').style.display = 'flex';
-    document.getElementById('btn-girar').innerText = "100% OFF LIBERADO!";
-    document.getElementById('texto-roleta').innerText = "🎊 PRÊMIO LIBERADO 🎊";
-    document.getElementById('info-extra').innerHTML = `<div style="background:#fff0f7; padding:15px; border-radius:10px; border:1px solid #ff007a; color:#ff007a; text-align:center;"><strong>PRODUTO 100% GRATUITO!</strong><br>O frete de R$ 19,90 será 100% reembolsado na sua fatura.</div>`;
+    precoExibido.innerText = "R$ 0,00";
+    precoExibido.style.color = "#ff007a";
+    btnMain.style.display = 'none';
+    btnResgatar.style.display = 'flex';
+    btnGirar.innerText = "100% OFF LIBERADO!";
+    textoRoleta.innerText = "🎊 PRÊMIO LIBERADO 🎊";
+    
+    infoExtra.innerHTML = `<div style="background:rgba(255, 0, 122, 0.08); padding:18px; border-radius:15px; border:1px solid #ff007a; color:#ff007a; text-align:center; box-shadow: 0 4px 15px rgba(255,0,122,0.1);"><strong style="font-size:16px;">PRODUTO 100% GRATUITO!</strong><br><span style="color:#444; font-size:14px; margin-top:5px; display:block;">O frete de R$ 19,90 será 100% reembolsado após a confirmação de endereço para envio do seu pedido.</span></div>`;
+
+    // Dispara os confetes com delay para não travar celulares antigos
+    const defaults = { zIndex: 1000 };
+    confetti(Object.assign({}, defaults, { particleCount: 120, spread: 90, origin: { y: 0.6 } }));
+    
+    setTimeout(() => {
+        confetti(Object.assign({}, defaults, { particleCount: 80, angle: 60, spread: 60, origin: { x: 0 } }));
+        confetti(Object.assign({}, defaults, { particleCount: 80, angle: 120, spread: 60, origin: { x: 1 } }));
+    }, 250);
 }
 
 window.onload = function() {
-    // Inicia a troca de nomes imediatamente
     showSocialProof();
     
-    if (localStorage.getItem('wepink_ganhou') === 'true') {
-        girado = true;
-        const totalGiro = (360 * 10) + (360 - (5 * arco) - (arco/2));
+    if (tentativas >= 2) {
+        currentRotation = (360 * 10) + (360 - (5 * arco) - (arco/2));
         svg.style.transition = 'none';
-        svg.style.transform = `rotate(${totalGiro}deg)`;
-        aplicarPremioFinal();
+        svg.style.transform = `rotate(${currentRotation}deg)`;
+        
+        // Aplica o visual final sem estourar confetes novamente no reload
+        precoExibido.innerText = "R$ 0,00";
+        precoExibido.style.color = "#ff007a";
+        btnMain.style.display = 'none';
+        btnResgatar.style.display = 'flex';
+        btnGirar.innerText = "100% OFF LIBERADO!";
+        textoRoleta.innerText = "🎊 PRÊMIO LIBERADO 🎊";
+        infoExtra.innerHTML = `<div style="background:rgba(255, 0, 122, 0.08); padding:18px; border-radius:15px; border:1px solid #ff007a; color:#ff007a; text-align:center; box-shadow: 0 4px 15px rgba(255,0,122,0.1);"><strong style="font-size:16px;">PRODUTO 100% GRATUITO!</strong><br><span style="color:#444; font-size:14px; margin-top:5px; display:block;">O frete de R$ 19,90 será 100% reembolsado após a confirmação de endereço para envio do seu pedido.</span></div>`;
+
+    } else if (tentativas === 1) {
+        currentRotation = (360 * 5) + (360 - (0 * arco) - (arco/2));
+        svg.style.transition = 'none';
+        svg.style.transform = `rotate(${currentRotation}deg)`;
+        
+        btnGirar.innerText = "GIRAR (ÚLTIMA CHANCE)";
+        textoRoleta.innerHTML = "<span style='color:#ff007a; font-size:16px;'>POXA, QUASE! VOCÊ GANHOU MAIS 1 CHANCE!</span>";
     }
 };
 
 function girarRoleta() {
-    if(girado) return;
-    girado = true;
-    document.getElementById('som-roleta').play();
-    document.getElementById('btn-girar').innerText = "SORTEANDO...";
-    const totalGiro = (360 * 10) + (360 - (5 * arco) - (arco/2));
-    svg.style.transform = `rotate(${totalGiro}deg)`;
+    if(isSpinning || tentativas >= 2) return;
+    isSpinning = true;
+    
+    btnGirar.innerText = "SORTEANDO...";
+    svg.style.willChange = "transform"; // GPU Acceleration
+    svg.style.transition = 'transform 5s cubic-bezier(0.2, 0.8, 0.1, 1)';
 
-    setTimeout(() => {
-        localStorage.setItem('wepink_ganhou', 'true');
-        aplicarPremioFinal();
-    }, 5000);
+    if (tentativas === 0) {
+        let indexAlvo = 0;
+        let anguloAlvo = (360 - (indexAlvo * arco) - (arco/2));
+        currentRotation = (360 * 5) + anguloAlvo; 
+        
+        svg.style.transform = `rotate(${currentRotation}deg)`;
+
+        setTimeout(() => {
+            svg.style.willChange = "auto";
+            textoRoleta.innerHTML = "<span style='color:#ff007a; font-size:16px;'>POXA, QUASE! VOCÊ GANHOU MAIS 1 CHANCE!</span>";
+            tentativas = 1;
+            localStorage.setItem('wepink_tentativas', '1');
+            btnGirar.innerText = "GIRAR (ÚLTIMA CHANCE)";
+            isSpinning = false;
+        }, 5000);
+
+    } else if (tentativas === 1) {
+        let indexAlvo = 5;
+        let anguloAlvo = (360 - (indexAlvo * arco) - (arco/2));
+        currentRotation = (360 * 10) + anguloAlvo; 
+        
+        svg.style.transform = `rotate(${currentRotation}deg)`;
+
+        setTimeout(() => {
+            svg.style.willChange = "auto";
+            tentativas = 2;
+            localStorage.setItem('wepink_tentativas', '2');
+            aplicarPremioFinal();
+            isSpinning = false;
+        }, 5000);
+    }
 }
 
+// Prova Social
 function showSocialProof() {
     const popup = document.getElementById('social-proof');
     const nameEl = document.getElementById('social-name');
     const textEl = document.getElementById('social-text');
     
-    // Altera o conteúdo
     nameEl.innerText = names[Math.floor(Math.random() * names.length)];
     textEl.innerText = texts[Math.floor(Math.random() * texts.length)];
     
-    // Efeito simples de fade para a troca
     popup.style.opacity = 0;
     setTimeout(() => {
         popup.style.opacity = 1;
-    }, 100);
+    }, 300);
 }
 
-// Troca os nomes a cada 5 segundos continuamente
 setInterval(showSocialProof, 5000);
 setInterval(()=>{ document.getElementById("contador").innerText = Math.floor(Math.random()*30)+1; },2000);
 </script>
